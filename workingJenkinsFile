@@ -1,0 +1,15 @@
+pipeline{
+	agent any
+	environment {
+      PATH="/var/lib/jenkins/miniconda3/bin:$PATH"
+    }
+	stages {
+		stage ("Code pull"){
+            steps{
+				echo "cheking out source code...."
+                checkout scm
+            }
+		}
+	}
+}
+	
