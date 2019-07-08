@@ -67,6 +67,15 @@ pipeline{
                     '''
             }
         }
+		
+		stage('Static code metrics - style check pylint') {
+            steps {
+				echo "Style check"
+                sh  ''' source activate ${BUILD_TAG}
+                        pylint irisvmpy || true
+                    '''
+				}
+			}
 	}
 }
 	
