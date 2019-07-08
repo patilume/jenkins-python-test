@@ -98,14 +98,7 @@ pipeline{
                         python -m behave2cucumber ./reports/integration.json
                     '''
             }
-            post {
-                always {
-                    cucumber (fileIncludePattern: '**/integration*.json',
-                              jsonReportDirectory: './reports/',
-                              parallelTesting: true,
-                              sortingMethod: 'ALPHABETICAL')
-                }
-            }
+            
         }
 	}
 }
