@@ -58,6 +58,15 @@ pipeline{
                 }
             }
         }
+		
+		stage('Static code metrics - style check') {
+            steps {
+                echo "PEP8 style check"
+                sh  ''' source activate ${BUILD_TAG}
+                        pylint --disable=C irisvmpy || true
+                    '''
+            }
+        }
 	}
 }
 	
